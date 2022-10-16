@@ -22,6 +22,7 @@ export default function App() {
     loginOffer: [],
     loginSeek: [],
   });
+
   const [region, setRegion] = useState([]);
   useEffect(() => {
     login.loginRegion.forEach((item) => {
@@ -33,15 +34,9 @@ export default function App() {
   console.log(region);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/users/634ab7e413075ae2b7bbee2b`)
+    fetch(`http://localhost:5000/api/users/123838728371`)
       .then((response) => response.json())
-      .then((data) =>
-        setLogin({
-          loginRegion: data.activityAreas,
-          loginOffer: data.offer,
-          loginSeek: data.seek,
-        })
-      );
+      .then((data) => setData(data));
   }, []);
   function Loading() {
     return <p>Loading...</p>;
